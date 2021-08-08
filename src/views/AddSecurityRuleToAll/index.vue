@@ -87,10 +87,8 @@
                 {required: true, message: '请选择授权策略', trigger: 'blur' }
               ]"
             >
-              <el-select v-model="addform.Policy" placeholder="请选择行为">
-                <el-option label="接受" value="accept" />
-                <el-option label="拒绝" value="drop" />
-              </el-select>
+              <el-radio v-model="addform.Policy" label="accept" border>接受</el-radio>
+              <el-radio v-model="addform.Policy" label="drop" border>拒绝</el-radio>
             </el-form-item>
             <el-form-item
               label="方向"
@@ -99,10 +97,8 @@
                 {required: true, message: '请选择方向', trigger: 'blur' }
               ]"
             >
-              <el-select v-model="addform.way" placeholder="请选择方向">
-                <el-option label="入方向" value="in" />
-                <el-option label="出方向" value="out" />
-              </el-select>
+              <el-radio v-model="addform.way" label="in" border>入方向</el-radio>
+              <el-radio v-model="addform.way" label="out" border>出方向</el-radio>
             </el-form-item>
             <el-form-item
               label="IP协议"
@@ -475,6 +471,9 @@ export default {
       } else {
         if (this.active === 0) {
           this.active = 2
+          this.StepStyle1.display = 'none'
+          this.StepStyle2.display = ''
+          this.StepStyle3.display = 'none'
         } else {
           this.active++
           if (this.active === 1) {
@@ -497,8 +496,8 @@ export default {
       this.drawerTitle = '添加规则'
       this.disabledInput = false
       this['addform'] = {
-        'Policy': '',
-        'way': '',
+        'Policy': 'accept',
+        'way': 'in',
         'IpProtocol': '',
         'PortRange': '',
         'SourceCidrIp': '',
