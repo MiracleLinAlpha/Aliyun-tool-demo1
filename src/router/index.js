@@ -56,106 +56,69 @@ export const constantRoutes = [
   },
 
   {
-    path: '/example',
+    path: '/AddSecurityRule',
     component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
-    meta: { title: 'Example', icon: 'el-icon-s-help' },
+    redirect: '/About/index',
+    name: '添加规则',
+    meta: { title: '添加规则', icon: 'el-icon-s-unfold' },
     children: [
       {
-        path: 'table',
-        name: 'Table',
-        component: () => import('@/views/table/index'),
-        meta: { title: 'Table', icon: 'table' }
+        path: 'AddSecurityRuleToAll',
+        name: '向所有安全组',
+        component: () => import('@/views/AddSecurityRuleToAll/index'),
+        meta: { title: '向所有安全组', icon: 'el-icon-caret-right' }
       },
       {
-        path: 'tree',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
-      }
-    ]
-  },
-
-  {
-    path: '/form',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        name: 'Form',
-        component: () => import('@/views/form/index'),
-        meta: { title: 'Form', icon: 'form' }
-      }
-    ]
-  },
-
-  {
-    path: '/nested',
-    component: Layout,
-    redirect: '/nested/menu1',
-    name: 'Nested',
-    meta: {
-      title: 'Nested',
-      icon: 'nested'
-    },
-    children: [
-      {
-        path: 'menu1',
-        component: () => import('@/views/nested/menu1/index'), // Parent router-view
-        name: 'Menu1',
-        meta: { title: 'Menu1' },
-        children: [
-          {
-            path: 'menu1-1',
-            component: () => import('@/views/nested/menu1/menu1-1'),
-            name: 'Menu1-1',
-            meta: { title: 'Menu1-1' }
-          },
-          {
-            path: 'menu1-2',
-            component: () => import('@/views/nested/menu1/menu1-2'),
-            name: 'Menu1-2',
-            meta: { title: 'Menu1-2' },
-            children: [
-              {
-                path: 'menu1-2-1',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
-                name: 'Menu1-2-1',
-                meta: { title: 'Menu1-2-1' }
-              },
-              {
-                path: 'menu1-2-2',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
-                name: 'Menu1-2-2',
-                meta: { title: 'Menu1-2-2' }
-              }
-            ]
-          },
-          {
-            path: 'menu1-3',
-            component: () => import('@/views/nested/menu1/menu1-3'),
-            name: 'Menu1-3',
-            meta: { title: 'Menu1-3' }
-          }
-        ]
+        path: 'AddSecurityRuleByGroupID',
+        name: '根据安全组ID',
+        component: () => import('@/views/AddSecurityRuleByGroupID/index'),
+        meta: { title: '根据安全组ID', icon: 'el-icon-caret-right' }
       },
       {
-        path: 'menu2',
-        component: () => import('@/views/nested/menu2/index'),
-        name: 'Menu2',
-        meta: { title: 'menu2' }
+        path: 'AddSecurityRuleByIP',
+        name: '根据目标地址',
+        component: () => import('@/views/AddSecurityRuleByIP/index'),
+        meta: { title: '根据目标地址', icon: 'el-icon-caret-right' }
       }
     ]
   },
 
   {
-    path: 'external-link',
+    path: '/DeleteSecurityRule',
+    component: Layout,
+    redirect: '/About/index',
+    name: '删除规则',
+    meta: { title: '删除规则', icon: 'el-icon-s-unfold' },
+    children: [
+      {
+        path: 'DeleteSecurityRuleToAll',
+        name: '向所有安全组',
+        component: () => import('@/views/DeleteSecurityRuleToAll/index'),
+        meta: { title: '向所有安全组', icon: 'el-icon-caret-right' }
+      },
+      {
+        path: 'DeleteSecurityRuleByGroupID',
+        name: '根据安全组ID',
+        component: () => import('@/views/DeleteSecurityRuleByGroupID/index'),
+        meta: { title: '根据安全组ID', icon: 'el-icon-caret-right' }
+      },
+      {
+        path: 'DeleteSecurityRuleByIP',
+        name: '根据目标地址',
+        component: () => import('@/views/DeleteSecurityRuleByIP/index'),
+        meta: { title: '根据目标地址', icon: 'el-icon-caret-right' }
+      }
+    ]
+  },
+
+  {
+    path: '/About',
     component: Layout,
     children: [
       {
-        path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
-        meta: { title: 'External Link', icon: 'link' }
+        path: 'About',
+        component: () => import('@/views/About/index'),
+        meta: { title: 'About', icon: 'link' }
       }
     ]
   },
